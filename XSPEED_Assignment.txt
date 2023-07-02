@@ -1,0 +1,18 @@
+DOCUMENTATION XSPEED :
+
+Objective :
+The aim is to design and create a B2C Ed-Tech website for children aged between 6-12 years old for learning subjects in an engaging manner.
+
+Tech Stack Used:
+Spring boot: It helps developers build applications with ease and with far less toil than other competing paradgms.I have more proficiency in spring boot as compared to node.js.  
+H2 Database : I have used h2 database since it is in-memory database .It would be easier to run this project on any machine without having the need to setup the database and then feed data. 
+React.js : I have used React.js since it supports code reusability and it has faster and flexible libraries. 
+
+Over-view: XSPEED is a learning platform for children aged between 6-12 years. This platform provides extensive knowledge through interactive measures.It consits of knowledgeable videos,quizes.
+
+Approach: I have used React.js as Front-End and SpringBoot as Back-End. I have kept Signup/Login option for users. I have used JWT-Authentication for login.
+Only After login user will be able to view the classroom screen where all the content is available. The content is fetched through an API. 
+Token is passed along the fetch request and when its authorised response for the respective request is sent back. The video links and the questions are fetched from backend using api 
+When user answer the mcq's if the answer is incorrect a label would come up stating incorrect ans. I have also kept the feature of infinite scrolling.I have kept the logout option which redirects the user to login/signup page again.
+
+ 
