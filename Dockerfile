@@ -1,15 +1,8 @@
-#
-# Build stage
-#
-FROM maven:3.8.2-jdk-17 AS build
+FROM maven:3.8.5-openjdk-17 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
-#
-# Package stage
-#
-FROM openjdk:17-jdk-slim
-COPY --from=build /target/xseed-classroom-api-0.0.1-SNAPSHOT.jar demo.jar
-# ENV PORT=8080
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/xseed-classroom-api-0.0.1-SNAPSHOT.jar xseed-classroom-api.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","demo.jar"]
+ENTRYPOINT ["java","-jar","xseed-classroom-api.jar"]
