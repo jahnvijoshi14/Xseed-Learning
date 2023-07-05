@@ -1,5 +1,15 @@
-FROM eclipse-temurin: 17-idk-alpine
-VOLUME /tmp
-COPY target/*.jar app.jar
-ENTRYPOINT ("java", "-jar", "/app.jar"]
+#
+# Build stage
+#
+FROM maven:3.8.5-jdk-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
+
+#
+# Package stage
+#
+FROM openjdk:17-jdk-slim
+COPY --from=build /target/xseed-classroom-api-0.0.1-SNAPSHOT.jar demo.jar
+# ENV PORT=8080
 EXPOSE 8080
+ENTRYPOINT ["java","-jar","demo.jar"]
